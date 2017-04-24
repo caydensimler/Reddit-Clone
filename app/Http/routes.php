@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/uppercase/{string}', function ($string) {
 	if (is_string($string) && !is_numeric($string)) {
 		return strtoupper($string);
@@ -32,10 +33,15 @@ Route::get('/increment/{number}', function ($number) {
 	}
 });
 
+
 Route::get('/add/{a}/{b}', function($a, $b) {
 	if (is_numeric($a) && is_numeric($b)) {
 		return $a + $b;
+	} else if (!is_numeric($a) && is_numeric($b)) {
+		return "The first input should be a number you doorknob.";
+	} else if (is_numeric($a) && !is_numeric($b)) {
+		return "The second input should be a number you doorknob.";
 	} else {
-		return "Inputs should be a number you doorknob.";
+		return "Both inputs should be a number you doorknob.";
 	}
 });

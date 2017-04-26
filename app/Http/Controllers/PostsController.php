@@ -35,7 +35,14 @@ class PostsController extends Controller
     public function create()
     {
         // show the form to create a post
-        return view('posts.create');
+
+        $data = [];
+        $posts['title'] = '';
+        $posts['content'] = '';
+        $posts['url'] = '';
+        $data = ['posts' => $posts];
+
+        return view('posts.create', $data);
     }
 
     /**

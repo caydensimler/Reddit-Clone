@@ -111,6 +111,36 @@ Route::get('/', function () {
 // Route::delete('/posts/{post}', 'PostsController@destroy'); // delete a post (by id)
 
 Route::resource('posts', 'PostsController'); // a resource controller
+Route::resource('students', 'StudentsController');
+
+Route::get('orm-test', function ()
+{
+
+ //    $post1 = new \App\Models\Post();
+	// $post1->title = 'Eloquent is awesome!';
+	// $post1->url='https://laravel.com/docs/5.1/eloquent';
+	// $post1->content  = 'It is super easy to create a new post.';
+	// $post1->created_by = 1;
+	// $post1->save();
+
+	// $post2 = new \App\Models\Post();
+	// $post2->title = 'Eloquent is really easy!';
+	// $post2->url='https://laravel.com/docs/5.1/eloquent';
+	// $post2->content = 'It is super easy to create a new post.';
+	// $post2->created_by = 1;
+	// $post2->save();
+
+
+	// return App\Models\Post::all() . PHP_EOL;
+
+	// $post = \App\Models\Post::find(1); // need to call find first
+	// $post->content = "some other content"; // reassign the content
+	// $post->save(); // save to the database
+
+	// $allPosts = App\Models\Post::all();
+	return var_dump(App\Models\Post::find(100)->exists());
+
+});
 
 
 

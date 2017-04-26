@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models;
 
 class PostsController extends Controller
 {
@@ -17,7 +18,13 @@ class PostsController extends Controller
     public function index()
     {
         // show all the posts
-        return "A listing of all posts.";
+        $posts = Models\Post::all() . PHP_EOL;
+
+        $data = [];
+        $posts = json_decode($posts, true);
+        $data = ['posts' => $posts];
+
+        return view('posts.index', $data);
     }
 
     /**
@@ -28,7 +35,7 @@ class PostsController extends Controller
     public function create()
     {
         // show the form to create a post
-        return "Show the form to create a post.";
+        return view('posts.create');
     }
 
     /**
@@ -40,7 +47,15 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         // save the new post
-        return "Save the new post.";
+        $post = new Models\Post();
+
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->url = $request->url;
+        $post->created_by = 1;
+        $post->save();
+
+        return redirect()->action('PostsController@index');
     }
 
     /**
@@ -52,7 +67,13 @@ class PostsController extends Controller
     public function show($id)
     {
         // show a specific post based on the id
-        return "Show a specific post with the post id of $id.";
+        $posts = Models\Post::find($id) . PHP_EOL;
+
+        $data = [];
+        $posts = json_decode($posts, true);
+        $data = ['posts' => $posts];
+        
+        return view('posts.show', $data);
     }
 
     /**
@@ -64,7 +85,13 @@ class PostsController extends Controller
     public function edit($id)
     {
         // Show the form for editing the specified resource.
-        return "This will present the current data for the post of id $id and outputs that data onto a form insde the input fields.";
+        $posts = Models\Post::find($id) . PHP_EOL;
+
+        $data = [];
+        $posts = json_decode($posts, true);
+        $data = ['posts' => $posts];
+
+        return view('posts.edit', $data);
     }
 
     /**
@@ -77,7 +104,13 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         // Update the post in the database
-        return "Update the edited post in the database with the id of $id.";
+        $post = \App\Models\Post::find($id);
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->url = $request->url;
+        $post->save();
+
+        return PostsController::show($id);
     }
 
     /**
@@ -89,6 +122,9 @@ class PostsController extends Controller
     public function destroy($id)
     {
         // delete a post based on the id
-        return "Delete a post with the post id of $id.";
+        $post = Models\Post::find($id);
+        $post->delete();
+
+        return redirect()->action('PostsController@index');
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models;
+use App\Models\Post;
 
 class PostsController extends Controller
 {
@@ -15,6 +16,7 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         // show all the posts
@@ -54,6 +56,9 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         // save the new post
+
+        $this->validate($request, Post::$rules);
+
         $post = new Models\Post();
 
         $post->title = $request->title;
@@ -110,6 +115,9 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request, Post::$rules);
+
         // Update the post in the database
         $post = \App\Models\Post::find($id);
         $post->title = $request->title;

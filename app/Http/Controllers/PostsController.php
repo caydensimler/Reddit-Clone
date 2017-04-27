@@ -20,13 +20,9 @@ class PostsController extends Controller
     public function index()
     {
         // show all the posts
-        $posts = Models\Post::all() . PHP_EOL;
+        $posts = Models\Post::paginate(4);
+        return view('posts.index')->with('posts', $posts);
 
-        $data = [];
-        $posts = json_decode($posts, true);
-        $data = ['posts' => $posts];
-
-        return view('posts.index', $data);
     }
 
     /**
@@ -79,13 +75,9 @@ class PostsController extends Controller
     public function show($id)
     {
         // show a specific post based on the id
-        $posts = Models\Post::find($id) . PHP_EOL;
-
-        $data = [];
-        $posts = json_decode($posts, true);
-        $data = ['posts' => $posts];
+        $posts = Models\Post::find($id);
         
-        return view('posts.show', $data);
+        return view('posts.show')->with('posts', $posts);
     }
 
     /**

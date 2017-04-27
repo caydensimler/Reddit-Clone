@@ -11,6 +11,7 @@
 
 		body {
 			font-family: 'Alegreya', serif;
+			background-color: #356489;
 		}
 	
 		.center {
@@ -19,6 +20,8 @@
 
 		.postBody {
 			background-color: #383836;
+			border: 1px solid white;
+			/*border-image: url(wood.jpg) 50 round;*/
 			color: white;
 			padding: 20px;
 			margin-bottom: 10px;
@@ -32,6 +35,11 @@
 		.content {
 			font-size: 2vw;
 		}
+
+		.pagination {
+			font-size: 2vw;
+		}
+
 
 	</style>
 </head>

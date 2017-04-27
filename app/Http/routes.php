@@ -115,26 +115,7 @@ Route::resource('students', 'StudentsController');
 
 Route::get('orm-test', function ()
 {
-    $user = new \App\User();
-	$user->name = 'Cayden';
-	$user->email = 'cayden.simler@hotmail.com';
-	$user->password = 'password';
-	$user->save();
 
-
-
-    $post = new \App\Models\Post();
-    $post->title = 'What is the most unusual password you have ever seen?';
-    $post->content = 'My mom used to require me to tell her my password to my computer/email/etc so she could check in every once in a while to make sure everything was good.
-		I had nothing to hide, as I was in the 7th grade, but the fact that shed still invade my privacy like that bugged me.
-		So I memorized the first 60 digits of Pi, after the decimal point, and gave her my password as requested.
-		Problem solved, she knew the password, but would never sit there and type in 61 digits to get into my computer.
-		But hey, for what its worth, I still remember the digits:
-		3.1415926535897932384626433832795028841971693993751058209749445
-		(Not copied and pasted)';
-    $post->url = 'https://www.quora.com/What-is-the-most-unusual-password-you-have-ever-seen/answer/Marissa-Wright-7';
-    $post->created_by = $user->id;
-    $post->save();
 });
 
 

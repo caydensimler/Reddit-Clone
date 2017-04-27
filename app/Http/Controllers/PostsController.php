@@ -61,9 +61,9 @@ class PostsController extends Controller
 
         $post = new Models\Post();
 
-        $post->title = $request->title;
-        $post->content = $request->content;
-        $post->url = $request->url;
+        $post->title = htmlspecialchars(strip_tags($request->title));
+        $post->content = htmlspecialchars(strip_tags($request->content));
+        $post->url = htmlspecialchars(strip_tags($request->url));
         $post->created_by = 1;
         $post->save();
 
@@ -120,9 +120,9 @@ class PostsController extends Controller
 
         // Update the post in the database
         $post = \App\Models\Post::find($id);
-        $post->title = $request->title;
-        $post->content = $request->content;
-        $post->url = $request->url;
+        $post->title = htmlspecialchars(strip_tags($request->title));
+        $post->content = htmlspecialchars(strip_tags($request->content));
+        $post->url = htmlspecialchars(strip_tags($request->url));
         $post->save();
 
         return PostsController::show($id);

@@ -12,7 +12,7 @@
 		body {
 			font-family: 'Alegreya', serif;
 			background-image: url('/blue-background-023.jpg');
-			background-size: fill;
+			background-size: fill cover;
 			background-repeat: no-repeat;
 			background-position: left;
 			color: white;

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1> Edit a Post</h1>
+	<h1 class="createEditHeader"> Edit a Post</h1>
 
 	<form action="{{ action('PostsController@update', $posts['id']) }}" method="POST">
 		

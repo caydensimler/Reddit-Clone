@@ -23,6 +23,7 @@ class PostsController extends Controller
         $posts = Models\Post::paginate(4);
         return view('posts.index')->with('posts', $posts);
 
+
     }
 
     /**
@@ -52,18 +53,22 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         // save the new post
+        $request->session()->flush();
 
         $this->validate($request, Post::$rules);
 
         $post = new Models\Post();
 
-        $post->title = htmlspecialchars(strip_tags($request->title));
-        $post->content = htmlspecialchars(strip_tags($request->content));
-        $post->url = htmlspecialchars(strip_tags($request->url));
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->url = $request->url;
         $post->created_by = 1;
         $post->save();
 
-        return redirect()->action('PostsController@index');
+        \Session::flash('successMessage', 'Post saved successfully!');
+
+
+        return redirect()->action('PostsController@show', $post->id);
     }
 
     /**
@@ -76,6 +81,12 @@ class PostsController extends Controller
     {
         // show a specific post based on the id
         $posts = Models\Post::find($id);
+
+
+        if (!$posts) {
+            \Session::flash('errorMessage', 'Post not found.');
+            return redirect()->action('PostsController@index');
+        }
         
         return view('posts.show')->with('posts', $posts);
     }
@@ -89,13 +100,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         // Show the form for editing the specified resource.
-        $posts = Models\Post::find($id) . PHP_EOL;
+        $posts = Models\Post::find($id);
 
-        $data = [];
-        $posts = json_decode($posts, true);
-        $data = ['posts' => $posts];
-
-        return view('posts.edit', $data);
+        return view('posts.edit')->with('posts', $posts);
     }
 
     /**
@@ -112,10 +119,16 @@ class PostsController extends Controller
 
         // Update the post in the database
         $post = \App\Models\Post::find($id);
-        $post->title = htmlspecialchars(strip_tags($request->title));
-        $post->content = htmlspecialchars(strip_tags($request->content));
-        $post->url = htmlspecialchars(strip_tags($request->url));
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->url = $request->url;
         $post->save();
+
+        if ($post) {
+            \Session::flash('updateMessage', 'Post successfully updated.');
+            return redirect()->action('PostsController@show', $post->id);
+        }
+
 
         return PostsController::show($id);
     }
@@ -131,6 +144,8 @@ class PostsController extends Controller
         // delete a post based on the id
         $post = Models\Post::find($id);
         $post->delete();
+
+        \Session::flash('deleteMessage', 'Post successfully deleted.');
 
         return redirect()->action('PostsController@index');
     }

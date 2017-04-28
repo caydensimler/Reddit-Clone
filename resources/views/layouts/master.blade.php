@@ -12,6 +12,7 @@
 		body {
 			font-family: 'Alegreya', serif;
 			background-color: #356489;
+			color: white;
 		}
 	
 		.center {
@@ -40,10 +41,55 @@
 			font-size: 2vw;
 		}
 
+		.header {
+			font-size: 2vw;
+		}
+
+		.form-control {
+			font-size: 2vw;
+			height: 150%;
+		}
+
+		.content {
+			height: 300%;
+		}
+
+		.createEditHeader {
+			font-size: 4vw;
+			text-align: center;
+		}
+
 
 	</style>
 </head>
 <body>
+	@if (Session::has('successMessage'))
+    	<div class="alert alert-success">{{ session('successMessage') }}</div>
+	@endif	
+
+	@if (Session::has('deleteMessage'))
+    	<div class="alert alert-danger">{{ session('deleteMessage') }}</div>
+	@endif
+
+	@if (Session::has('errorMessage'))
+    	<div class="alert alert-danger">{{ session('errorMessage') }}</div>
+	@endif
+
+	@if (Session::has('updateMessage'))
+    	<div class="alert alert-success">{{ session('updateMessage') }}</div>
+	@endif
+
     @yield('content')
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

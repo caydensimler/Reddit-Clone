@@ -9,7 +9,7 @@
 			<div class="col-xs-12 title center">{{ $post['title'] }}</div>
 			<div class="col-xs-12 url center"><a href="http://{{ $post['url'] }}">{{ $post['url'] }}</a></div>
 			<div class="col-xs-12 content center">{{ $post['content'] }}</div>
-			<div class="col-xs-12 center url"><a href="posts/{{ $post['id'] }}">view post</a></div>
+			<div class="col-xs-12 center url"><a href="{{ action('PostsController@show', $post['id']) }}">view post</a></div>
 		</div>
 	@endforeach
 

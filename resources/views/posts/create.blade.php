@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1>Create a Post</h1>
+	<h1 class="createEditHeader">Create a Post</h1>
 
 	<form action="{{ action('PostsController@store') }}" method="POST">
 

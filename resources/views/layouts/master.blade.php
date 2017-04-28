@@ -64,7 +64,7 @@
 		}
 
 		.postContent {
-			font-size: 3vw;
+			font-size: 2.2vw;
 		}
 
 		.postUrl {

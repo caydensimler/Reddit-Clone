@@ -28,8 +28,7 @@
 			id="content" 
 			name="content" 
 			class="form-control content" 
-			value="{{ $posts['content'] }}"
-			rows="5"></textarea>
+			rows="5">{{ $posts['content'] }}</textarea>
 		@if ($errors->has('content'))
 			<div class="alert alert-warning" role="alert">
 				{{ $errors->first('content') }}

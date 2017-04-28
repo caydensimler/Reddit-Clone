@@ -11,7 +11,10 @@
 
 		body {
 			font-family: 'Alegreya', serif;
-			background-color: #356489;
+			background-image: url('/blue-background-023.jpg');
+			background-size: fill;
+			background-repeat: no-repeat;
+			background-position: left;
 			color: white;
 		}
 	
@@ -27,6 +30,7 @@
 			padding: 20px;
 			margin-bottom: 10px;
 			margin-top: 20px;
+			position: relative;
 		}
 		
 		.title {
@@ -59,27 +63,132 @@
 			text-align: center;
 		}
 
+		.navbar {
+			background-color: #383836;
+		}
+
+		#navbar > ul > li > a {
+			color: white;
+		}
+
+		body > nav > div > div.navbar-header > ul {
+			display: inline;
+		}
+
+		body > nav > div > div.navbar-header > ul > li.success {
+			color: #45A555;
+			display: inline;
+			font-size: 20px;
+		}
+
+		body > nav > div > div.navbar-header > ul > li.error {
+			display: inline;
+			color: #E07676;
+			font-size: 20px;
+		}
+
+		#navbar {
+			text-align: center;
+		}
+
+		#navbar > ul > a:nth-child(1) {
+			color: white;
+			font-size: 20px;
+		}			
+
+		#navbar > ul > a:nth-child(1):hover {
+			font-style: italic;
+			text-decoration: none;
+		}		
+
+		#navbar > ul > a:nth-child(3) {
+			color: white;
+			font-size: 20px;
+		}		
+
+		#navbar > ul > a:nth-child(3):hover {
+			font-style: italic;
+			text-decoration: none;
+		}
+
+		.invisibleTwo {
+			font-size: 2.5vw;
+		}
+
+		.navbar-text {
+			display: inline;
+		}
+
+		.nav {
+			display: inline;
+		}
+
+
 
 	</style>
 </head>
 <body>
-	@if (Session::has('successMessage'))
-    	<div class="alert alert-success">{{ session('successMessage') }}</div>
-	@endif	
 
-	@if (Session::has('deleteMessage'))
-    	<div class="alert alert-danger">{{ session('deleteMessage') }}</div>
-	@endif
+	<nav class="navbar navbar-default navbar-fixed-top">
+      	<div class="container">
+        	<div class="navbar-header">
+          		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            		<span class="sr-only">Toggle navigation</span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+          		</button>
+          			
+      			@if (Session::has('successMessage'))
+      				<ul class="nav navbar-text navbar-left">
+						<li class="success">Post created successfully</li>
+					</ul>
+				@endif       
 
-	@if (Session::has('errorMessage'))
-    	<div class="alert alert-danger">{{ session('errorMessage') }}</div>
-	@endif
+				@if (Session::has('deleteMessage'))
+					<ul class="nav navbar-text navbar-left">
+						<li class="error">Post successfully deleted</li>
+					</ul>
+				@endif  
 
-	@if (Session::has('updateMessage'))
-    	<div class="alert alert-success">{{ session('updateMessage') }}</div>
-	@endif
+				@if (Session::has('errorMessage'))
+					<ul class="nav navbar-text navbar-left">
+						<li class="error">Post not found</li>
+					</ul>
+				@endif 
+
+				@if (Session::has('updateMessage'))
+					<ul class="nav navbar-text navbar-left">
+						<li class="success">Post Updated Successfully</li>
+					</ul>
+				@endif
+       		</div>
+
+	        	<div id="navbar" class="navbar-collapse collapse">
+		            <ul class="nav navbar-nav navbar-right navbar-text">
+						<a href="/posts">Home</a>
+						<a href="" class="invisible">lorem</a>
+						<a href="/posts/create">Create</a>
+		          	</ul>
+	        	</div>
+        	</div>
+      	</div>
+    </nav>
+
+    <div class="invisible invisibleTwo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore ab excepturi, quasi maxime facilis optio a id quas dignissimos debitis sunt consequuntur nisi officia voluptates voluptatum quisquam, nihil eligendi amet!</div>
 
     @yield('content')
+
+    <div class="invisible invisibleTwo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore ab excepturi, quasi maxime facilis optio a id quas dignissimos debitis sunt consequuntur nisi officia voluptates voluptatum quisquam, nihil eligendi amet!</div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/788edc112b.js"></script>
+
 </body>
 </html>
 

@@ -61,7 +61,7 @@ class PostsController extends Controller
 
 
         if (!$posts) {
-            Log::info("Post with id of $id cannot be found.");
+            Log::error("Post with id of $id cannot be found.");
             abort(404);
         }
         
@@ -74,7 +74,7 @@ class PostsController extends Controller
         $posts = Post::find($id);
 
         if (!$posts) {
-            Log::info("Post with id of $id cannot be found.");
+            Log::error("Post with id of $id cannot be found.");
             abort(404);
         }
 

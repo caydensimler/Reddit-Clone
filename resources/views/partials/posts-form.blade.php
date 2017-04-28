@@ -7,7 +7,7 @@
 			type="text" 
 			id="title" 
 			name="title" 
-			class="form-control" 
+			class="form-control title" 
 			value="{{ $posts['title'] }}"
 			rows="1"
 		>
@@ -23,13 +23,13 @@
 <div class="col-xs-offset-1 col-xs-10 postBody">
 	<div class="form-group col-xs-offset-1 col-xs-10">
 		<label for="content" class="header">Content</label>
-		<input
+		<textarea
 			type="text" 
 			id="content" 
 			name="content" 
 			class="form-control content" 
 			value="{{ $posts['content'] }}"
-			rows="5">
+			rows="5"></textarea>
 		@if ($errors->has('content'))
 			<div class="alert alert-warning" role="alert">
 				{{ $errors->first('content') }}
@@ -46,7 +46,7 @@
 			type="text" 
 			id="url" 
 			name="url" 
-			class="form-control" 
+			class="form-control url" 
 			value="{{ $posts['url'] }}">
 		@if ($errors->has('url'))
 			<div class="alert alert-warning" role="alert">

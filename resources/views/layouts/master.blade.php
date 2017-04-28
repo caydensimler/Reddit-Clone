@@ -12,7 +12,7 @@
 		body {
 			font-family: 'Alegreya', serif;
 			background-image: url('/blue-background-023.jpg');
-			background-size: fill cover;
+			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: left;
 			color: white;
@@ -37,8 +37,17 @@
 			font-size: 6vw;
 		}
 
-		.content {
+		input.content {
 			font-size: 2vw;
+			height: 20vw;
+		}
+
+		input.title {
+			height: 4vw;
+		}
+
+		input.url {
+			height: 4vw;
 		}
 
 		.pagination {
@@ -52,6 +61,14 @@
 		.form-control {
 			font-size: 2vw;
 			height: 150%;
+		}
+
+		.postContent {
+			font-size: 3vw;
+		}
+
+		.postUrl {
+			font-size: 1.5vw;
 		}
 
 		.content {

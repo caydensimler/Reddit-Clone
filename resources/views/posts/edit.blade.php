@@ -6,16 +6,18 @@
 	<form action="{{ action('PostsController@update', $posts['id']) }}" method="POST">
 		
 		@include('partials.posts-form')
-
-		<input type="submit" value="update post information" class="btn btn-default">
+		<div class="col-xs-12 center">
+			<input type="submit" value="update post information" class="btn btn-default">
+		</div>
 		{{ method_field('PUT') }}
 
 	</form>
 
 	<form action=" {{ action('PostsController@destroy', $posts['id']) }}" method="POST">
 		{!! csrf_field() !!}
-
-		<input type="submit" value="Delete" class="btn btn-danger">
+		<div class="col-xs-12 center">
+			<input type="submit" value="Delete" class="btn btn-danger">
+		</div>
 
 		{{ method_field('DELETE') }}
 	</form>

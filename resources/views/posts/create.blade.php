@@ -6,8 +6,10 @@
 	<form action="{{ action('PostsController@store') }}" method="POST">
 
 		@include('partials.posts-form')
-
-		<input type="submit" value="create post" class="btn btn-default">
+		
+		<div class="col-xs-12 center">
+			<input type="submit" value="create post" class="btn btn-default">
+		</div>
 		
 	</form>
 	

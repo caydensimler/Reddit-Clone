@@ -7,7 +7,7 @@
 			<div class="col-xs-12 title center">{{ $post['title'] }}</div>
 			<div class="col-xs-12 postUrl center"><a href="http://{{ $post['url'] }}">{{ $post['url'] }}</a></div>
 			<div class="col-xs-12 postContent center">
-			@if (strlen($post['content']) > 200))
+			@if (strlen($post['content']) > 200)
 				{{ substr($post['content'], 0, 200) }}...
 			@else
 				{{ $post['content'] }}

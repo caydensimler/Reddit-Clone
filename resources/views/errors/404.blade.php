@@ -3,7 +3,9 @@
 @section('content')
 
 	<div class="col-xs-12 center">
-		<img src="/post_not_found.jpg" alt="post not found">
+		<a href="/posts">
+			<img src="/post_not_found.jpg" alt="post not found">
+		</a>
 	</div>
 
 

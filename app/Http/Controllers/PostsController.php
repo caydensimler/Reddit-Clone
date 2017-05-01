@@ -21,9 +21,15 @@ class PostsController extends Controller
         // $this->middleware('auth', ['only' => ['create', 'edit', 'update', 'store', 'destroy']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('user')->paginate(4);
+        if (isset($request->search)) {
+            $posts = Post::where('title', 'like', "%$request->search%")->paginate(4)->appends(['search' => $request->search]);
+            // $posts .= User::where('name', 'like', "%$request->search%")->paginate(4);
+            return view('posts.index')->with('posts', $posts);
+        }
+
+        $posts = Post::orderBy('created_at', 'desc')->paginate(4);
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -88,6 +94,7 @@ class PostsController extends Controller
         }
 
         if (\Auth::user()->id != $posts->created_by) {
+            Session::flash('notOwner', 'Access Denied');
             return redirect()->action('PostsController@index');
         }
 

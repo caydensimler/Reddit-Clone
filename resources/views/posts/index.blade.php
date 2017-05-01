@@ -2,7 +2,7 @@
 
 @section('content')
 
-	@if (!$_GET || $_GET['page'] == 1)
+	@if (!isset($_GET['page']) || $_GET['page'] == 1)
 		<div class="postsHeader">
 			<div class="postsHeaderTitle">Reddit Clone</div>
 			<div class="postsHeaderSubTitle">"It's like Reddit, but with style!"</div>
@@ -10,6 +10,13 @@
 	@elseif ($_GET['page'] != 1)
 		<div class="moveFromTop"></div>
 	@endif
+
+	<div class="col-xs-offset-3 col-xs-6">
+		<form action="" method="GET">
+			<div class="col-xs-12 searchHeader">Search posts</div>
+			<input type="text" name="search" id="search" class="searchBar" placeholder="search by the post title or the creator's username">
+		</form>
+	</div>
 
 	@foreach ($posts as $post)
 		

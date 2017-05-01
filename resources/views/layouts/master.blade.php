@@ -267,6 +267,22 @@
 			color: #6E6956;
 		}
 
+		.searchBar {
+			margin-bottom: 5%;
+			height: 150%;
+			width: 100%;
+			background-color: #B8B9AB;
+			border: 1px solid #6E6956;
+			color: #6E6956;
+			font-size: 2vw;
+		}
+
+		.searchHeader {
+			color: #6E6956;
+			font-size: 2vw;
+			margin-top: 5%;
+			text-align: center;
+		}
 
 
 	</style>
@@ -297,6 +313,9 @@
 					@elseif (Session::has('updateMessage'))
 						<a href="" class="invisible">lor</a>
 						<div class="success">Post Updated</div>
+					@elseif (Session::has('notOwner'))
+						<a href="" class="invisible">lor</a>
+						<div class="error">You do not have access to that post.</div>
 					@endif
         		</ul>
 	            <ul class="nav navbar-nav navbar-right navbar-text">

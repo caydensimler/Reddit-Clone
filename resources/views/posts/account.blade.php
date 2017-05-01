@@ -5,6 +5,10 @@
 
 	<div class="accountHeader"> Welcome to your account page, {{ \Auth::user()->name }}. </div>
 
+	@if (sizeof($posts) == 0)
+		<div class="col-xs-offset-1 col-xs-10 noPosts">Looks like you haven't created any posts yet! Try creating your first post<a href="/posts/create"> here</a></div>
+	@endif
+
 	@foreach ($posts as $post)
 		<div class="col-xs-offset-1 col-xs-10 postBody">
 			<div class="col-xs-12 title center">{{ $post['title'] }}</div>

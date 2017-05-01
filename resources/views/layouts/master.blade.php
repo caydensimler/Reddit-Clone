@@ -253,6 +253,20 @@
 			font-size: 1.7vw;
 		}
 
+		.noPosts {
+			font-size: 2vw;
+			color: #6E6956;
+		}
+
+		.noPosts a {
+			color: #B8B9AB;
+			text-decoration: none;
+		}
+
+		.noPosts a:hover {
+			color: #6E6956;
+		}
+
 
 
 	</style>

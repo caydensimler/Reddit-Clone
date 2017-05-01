@@ -11,11 +11,25 @@
 
 		body {
 			font-family: 'Alegreya', serif;
-			background-image: url('/blue-background-023.jpg');
+			background-color: #B7DDE2;
+			color: white;
+		}
+
+		.postsHeader {
+			background-image: url('/header.jpg');
+			position: left;
 			background-size: cover;
 			background-repeat: no-repeat;
-			background-position: left;
-			color: white;
+		}
+
+		.postsHeaderTitle {
+			font-size: 8vw;
+			color: #B7DDE2;
+			padding-top: 10%;
+			padding-bottom: 35%;
+			text-align: left;
+			text-shadow: 2px 2px #6E6956;
+			padding-left: 2%;
 		}
 	
 		.center {
@@ -23,10 +37,10 @@
 		}
 
 		.postBody {
-			background-color: #383836;
-			border: 1px solid white;
-			/*border-image: url(wood.jpg) 50 round;*/
-			color: white;
+			border-top: 1px solid #6E6956;
+			border-bottom: 1px solid #6E6956;
+			border-radius: 5px;
+			color: #6E6956;
 			padding: 20px;
 			margin-bottom: 10px;
 			margin-top: 20px;
@@ -35,6 +49,7 @@
 		
 		.title {
 			font-size: 6vw;
+			text-align: left;
 		}
 
 		input.content {
@@ -65,10 +80,17 @@
 
 		.postContent {
 			font-size: 2.2vw;
+			text-align: left;
 		}
 
-		.postUrl {
+		.postUrl a {
 			font-size: 1.5vw;
+			color: #B8B9AB;
+		}
+
+		.postUrl a:hover {
+			color: #6E6956;
+			text-decoration: none;
 		}
 
 		.content {
@@ -81,24 +103,17 @@
 		}
 
 		.navbar {
-			background-color: #383836;
+			background-color: #6E6956;
+			border-bottom: 1px solid #B7DDE2;
 		}
 
-		#navbar > ul > li > a {
-			color: white;
-		}
-
-		body > nav > div > div.navbar-header > ul {
-			display: inline;
-		}
-
-		body > nav > div > div.navbar-header > ul > li.success {
+		.success {
 			color: #45A555;
 			display: inline;
 			font-size: 20px;
 		}
 
-		body > nav > div > div.navbar-header > ul > li.error {
+		.error {
 			display: inline;
 			color: #E07676;
 			font-size: 20px;
@@ -108,36 +123,123 @@
 			text-align: center;
 		}
 
-		#navbar > ul > a:nth-child(1) {
-			color: white;
-			font-size: 20px;
-		}			
-
-		#navbar > ul > a:nth-child(1):hover {
-			font-style: italic;
-			text-decoration: none;
-		}		
-
-		#navbar > ul > a:nth-child(3) {
-			color: white;
-			font-size: 20px;
-		}		
-
-		#navbar > ul > a:nth-child(3):hover {
-			font-style: italic;
-			text-decoration: none;
-		}
-
 		.invisibleTwo {
 			font-size: 2.5vw;
 		}
 
-		.navbar-text {
-			display: inline;
+		body > nav > div > div.nav.navbar-nav.navbar-left > ul {
+			font-size: 1vw;
 		}
 
-		.nav {
-			display: inline;
+		body > div.col-xs-12.center > ul > li.active > span {
+			background-color: #6E6956;
+			border: 1px solid #6E6956;
+			color: #B7DDE2;
+		}
+
+		body > div.col-xs-12.center > ul > li > a {
+			background-color: #B7DDE2;
+			border: 1px solid #6E6956;
+			color: #6E6956;
+		}
+
+		body > div.col-xs-12.center > ul > li > a:hover {
+			background-color: #6E6956;
+			border: 1px solid #6E6956;
+			color: #B7DDE2;
+		}
+
+		body > div.col-xs-12.center > ul > li:nth-child(1) > span {
+			background-color: #6E6956;
+			color: #B7DDE2;
+		}
+
+		body > div.col-xs-12.center > ul > li.disabled > span {
+			background-color: #B7DDE2;
+			border: 1px solid #6E6956;
+			color: #6E6956;
+		}
+
+		.moveFromTop {
+			padding-top: 10%;
+		}
+
+		#navbar > ul.nav.navbar-nav.navbar-right.navbar-text a {
+			color: #B7DDE2;
+			font-size: 20px;
+		}
+
+		#navbar > ul.nav.navbar-nav.navbar-left.navbar-text a {
+			color: #B7DDE2;
+			font-size: 20px;
+		}
+
+		#navbar > ul.nav.navbar-nav.navbar-left.navbar-text a:hover {
+			font-size: 20px;
+			/*font-style: italic;*/
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		#navbar > ul.nav.navbar-nav.navbar-right.navbar-text a:hover {
+			font-size: 20px;
+			/*font-style: italic;*/
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		.accountHeader {
+			font-size: 4vw;
+			color: #6E6956;
+			padding-left: 1%;
+			padding-bottom: 5%;
+		}
+
+		.viewPost a {
+			color: #6E6956;
+			font-size: 3vw;
+		}
+
+		.viewPost a:hover {
+			font-size: 3.5vw;
+		}
+
+		.editPost a {
+			font-size: 2.2vw;
+			color: #B8B9AB;
+		}
+
+		.editPost a:hover {
+			color: #6E6956;
+			text-decoration: none;
+		}
+
+		.registerHeader {
+			font-size: 2vw;
+			color: #6E6956;
+		}
+
+		.registerBody {
+			border-left: 1px solid #6E6956;
+			border-right: 1px solid #6E6956;
+			border-radius: 4px;
+		}
+
+		.registerBodyTop {
+			border-top: 1px solid #6E6956;
+		}
+
+		.registerBodyBottom {
+			border-bottom: 1px solid #6E6956;
+		}
+
+		.registerInput {
+			background-color: #B8B9AB;
+			border: 1px solid #6E6956;
+		}
+
+		.postBody a:hover {
+			background-color: #A3C4C9;
 		}
 
 
@@ -155,44 +257,42 @@
             		<span class="icon-bar"></span>
             		<span class="icon-bar"></span>
           		</button>
-          			
-      			@if (Session::has('successMessage'))
-      				<ul class="nav navbar-text navbar-left">
-						<li class="success">Post created successfully</li>
-					</ul>
-				@endif       
-
-				@if (Session::has('deleteMessage'))
-					<ul class="nav navbar-text navbar-left">
-						<li class="error">Post successfully deleted</li>
-					</ul>
-				@endif  
-
-				@if (Session::has('errorMessage'))
-					<ul class="nav navbar-text navbar-left">
-						<li class="error">Post not found</li>
-					</ul>
-				@endif 
-
-				@if (Session::has('updateMessage'))
-					<ul class="nav navbar-text navbar-left">
-						<li class="success">Post Updated Successfully</li>
-					</ul>
-				@endif
        		</div>
 
-	        	<div id="navbar" class="navbar-collapse collapse">
-		            <ul class="nav navbar-nav navbar-right navbar-text">
-						<a href="/posts">Home</a>
-						<a href="" class="invisible">lorem</a>
+        	<div id="navbar" class="navbar-collapse collapse">
+        		<ul class="nav navbar-nav navbar-left navbar-text">
+        			<a href="/">Home</a>
+
+        			@if (Session::has('successMessage'))
+        				<a href="" class="invisible">lor</a>
+						<div class="success">Post created</div>     
+					@elseif (Session::has('deleteMessage'))
+						<a href="" class="invisible">lor</a>
+						<div class="error">Post deleted</div> 
+					@elseif (Session::has('updateMessage'))
+						<a href="" class="invisible">lor</a>
+						<div class="success">Post Updated</div>
+					@endif
+        		</ul>
+	            <ul class="nav navbar-nav navbar-right navbar-text">
+					
+					<a href="" class="invisible">lorem</a>
+					@if (\Auth::check())
 						<a href="/posts/create">Create</a>
-		          	</ul>
-	        	</div>
+						<a href="" class="invisible">lor</a>
+						<a href="/account">My Account</a>
+						<a href="" class="invisible">lor</a>
+						<a href="/logout">Logout</a>
+					@elseif (!\Auth::check())
+						<a href="/login">Login</a>
+						<a href="" class="invisible">lor</a>
+						<a href="/register">Register</a>
+					@endif
+	          	</ul>
         	</div>
+
       	</div>
     </nav>
-
-    <div class="invisible invisibleTwo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore ab excepturi, quasi maxime facilis optio a id quas dignissimos debitis sunt consequuntur nisi officia voluptates voluptatum quisquam, nihil eligendi amet!</div>
 
     @yield('content')
 

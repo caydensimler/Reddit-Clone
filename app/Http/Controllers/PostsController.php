@@ -13,6 +13,12 @@ use Log;
 class PostsController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+
+        // $this->middleware('auth', ['only' => ['create', 'edit', 'update', 'store', 'destroy']]);
+    }
 
     public function index()
     {
@@ -23,6 +29,7 @@ class PostsController extends Controller
 
     public function create()
     {
+
         $data = [];
         $posts['title'] = '';
         $posts['content'] = '';
@@ -44,7 +51,7 @@ class PostsController extends Controller
         $post->title = $request->title;
         $post->content = $request->content;
         $post->url = $request->url;
-        $post->created_by = 1;
+        $post->created_by = \Auth::user()->id;
         Log::info("Post Created \n \tTitle: {$post->title} \n \tContent: {$post->content} \n \tURL: {$post->url} \n \tCreated By: {$post->created_by}");
         $post->save();
 
@@ -71,6 +78,7 @@ class PostsController extends Controller
 
     public function edit($id)
     {
+
         $posts = Post::find($id);
 
         if (!$posts) {
@@ -78,7 +86,12 @@ class PostsController extends Controller
             abort(404);
         }
 
+        if (\Auth::user()->id != $posts->created_by) {
+            return redirect()->action('PostsController@index');
+        }
+
         return view('posts.edit')->with('posts', $posts);
+
     }
 
 

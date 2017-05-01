@@ -21,16 +21,6 @@
 			background-size: cover;
 			background-repeat: no-repeat;
 		}
-
-		.postsHeaderTitle {
-			font-size: 8vw;
-			color: #B7DDE2;
-			padding-top: 10%;
-			padding-bottom: 35%;
-			text-align: left;
-			text-shadow: 2px 2px #6E6956;
-			padding-left: 2%;
-		}
 	
 		.center {
 			text-align: center;
@@ -240,6 +230,27 @@
 
 		.postBody a:hover {
 			background-color: #A3C4C9;
+		}
+
+		.postsHeaderSubTitle {
+			font-size: 2vw;
+			padding-bottom: 35%;
+			padding-left: 4%;
+			color: #B7DDE2;
+			text-shadow: 1px 1px #6E6956;
+		}
+
+		.postsHeaderTitle {
+			font-size: 8vw;
+			color: #B7DDE2;
+			padding-top: 10%;
+			text-align: left;
+			text-shadow: 2px 2px #6E6956;
+			padding-left: 2%;
+		}
+
+		.postsName {
+			font-size: 1.7vw;
 		}
 
 

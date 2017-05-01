@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Post extends BaseModel
 {
 
     protected $table = 'posts';
@@ -14,7 +14,10 @@ class Post extends Model
         'url'   => 'required|url',
         'content' => 'required'
     );
-	
 
+    public function user()
+	{
+		return $this->belongsTo('App\User', 'created_by');
+	}
 
 }

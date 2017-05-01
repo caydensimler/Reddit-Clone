@@ -5,6 +5,7 @@
 	@if (!$_GET || $_GET['page'] == 1)
 		<div class="postsHeader">
 			<div class="postsHeaderTitle">Reddit Clone</div>
+			<div class="postsHeaderSubTitle">"It's like Reddit, but with style!"</div>
 		</div>
 	@elseif ($_GET['page'] != 1)
 		<div class="moveFromTop"></div>
@@ -21,6 +22,7 @@
 				</a>
 			</div>
 
+			<div class="col-xs-12 postsName">by {{ App\User::find($post['created_by'])->name }}</div>
 			<div class="col-xs-12 postUrl center"><a href="http://{{ $post['url'] }}">{{ $post['url'] }}</a></div>
 			<div class="col-xs-12 postContent center">
 			@if (strlen($post['content']) > 200)

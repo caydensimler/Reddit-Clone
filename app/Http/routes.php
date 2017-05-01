@@ -14,13 +14,7 @@ Route::get('/test', function() {
 	$user->save();
 });
 
-
-Route::get('/account', function() {
-
-	$posts = App\Models\Post::all()->where('created_by', \Auth::user()->id);
-    return view('posts.account')->with('posts', $posts);
-
-});
+Route::get('/account', 'PostsController@account');
 
 // Authentication routes...
 Route::get('/login', 'Auth\AuthController@getLogin');

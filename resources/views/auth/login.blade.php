@@ -13,11 +13,17 @@
 	    <div class="form-group postBody">
 	        Email
 	        <input type="email" name="email" value="{{ old('email') }}" class="form-control">
+	       	@if ($errors->has('email'))
+	        	{{ $errors->first('email') }}
+	        @endif
 	    </div>
 
 	    <div class="form-group postBody">
 	        Password
 	        <input type="password" name="password" id="password" class="form-control">
+	        @if ($errors->has('password'))
+	        	{{ $errors->first('password') }}
+	        @endif
 	    </div>
 
 	    <div class="form-group">

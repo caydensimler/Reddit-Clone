@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Session;
 use Log;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -138,5 +139,13 @@ class PostsController extends Controller
         Session::flash('deleteMessage', 'Post successfully deleted.');
 
         return redirect()->action('PostsController@index');
+    }
+
+    public function account() {
+        // $user = User::find(\Auth::user()->id);
+
+        $posts = Post::all()->where('created_by', \Auth::user()->id);
+        // $posts = $user->posts;
+        return view('posts.account')->with('posts', $posts);
     }
 }

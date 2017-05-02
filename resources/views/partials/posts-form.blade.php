@@ -1,13 +1,14 @@
 {!! csrf_field() !!}
 
-<div class="col-xs-offset-1 col-xs-10 postBody">
+<div class="col-xs-offset-2 col-xs-8 registerBody registerBodyTop">
 	<div class="form-group col-xs-offset-1 col-xs-10">
-		<label for="title" class="header">Title</label>
+		<div class="invisible">adsfs</div>
+		<div class="registerHeader">Title</div>
 		<input
 			type="text" 
 			id="title" 
 			name="title" 
-			class="form-control title" 
+			class="form-control title registerInput" 
 			value="{{ $posts['title'] }}"
 			rows="1"
 		>
@@ -20,14 +21,15 @@
 </div>
 
 
-<div class="col-xs-offset-1 col-xs-10 postBody">
+<div class="col-xs-offset-2 col-xs-8 registerBody">
 	<div class="form-group col-xs-offset-1 col-xs-10">
-		<label for="content" class="header">Content</label>
+		<div class="invisible">adsfs</div>
+		<div class="registerHeader">Content</div>
 		<textarea
 			type="text" 
 			id="content" 
 			name="content" 
-			class="form-control content" 
+			class="form-control content registerInput" 
 			rows="5">{{ $posts['content'] }}</textarea>
 		@if ($errors->has('content'))
 			<div class="alert alert-warning" role="alert">
@@ -38,14 +40,15 @@
 </div>
 
 
-<div class="col-xs-offset-1 col-xs-10 postBody">	
+<div class="col-xs-offset-2 col-xs-8 registerBody">	
 	<div class="form-group col-xs-offset-1 col-xs-10">
-		<label for="url" class="header">URL</label>
+		<div class="invisible">adsfs</div>
+		<div class="registerHeader">URL</div>
 		<input 
 			type="text" 
 			id="url" 
 			name="url" 
-			class="form-control url" 
+			class="form-control url registerInput" 
 			value="{{ $posts['url'] }}">
 		@if ($errors->has('url'))
 			<div class="alert alert-warning" role="alert">

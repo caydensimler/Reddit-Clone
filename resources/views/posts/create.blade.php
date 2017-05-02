@@ -1,15 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
-	<h1 class="createEditHeader">Create a Post</h1>
+	<div class="moveFromTop"></div>
+	<div class="col-xs-offset-1 col-xs-10 registerTitle">Create a post!</div>
 
 	<form action="{{ action('PostsController@store') }}" method="POST">
 
 		@include('partials.posts-form')
 		
-		<div class="col-xs-12 center">
-			<input type="submit" value="create post" class="btn btn-default">
+		<div class="col-xs-offset-2 col-xs-8 registerBody registerBodyBottom buttonHolder">
+			<button type="submit" class="btn btn-primary registerButton">Login</button>
 		</div>
+
 		
 	</form>
 	

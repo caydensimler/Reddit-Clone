@@ -212,7 +212,7 @@
 		.registerBody {
 			border-left: 1px solid #6E6956;
 			border-right: 1px solid #6E6956;
-			border-radius: 4px;
+			/*border-radius: 4px;*/
 		}
 
 		.registerBodyTop {
@@ -342,6 +342,7 @@
 			background-color: #6E6956;
 			border: 1px solid transparent;
 			color: #B7DDE2;
+			margin-bottom: 5%;
 		}
 
 		.registerButton:hover {

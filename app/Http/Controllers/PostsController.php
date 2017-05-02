@@ -65,7 +65,7 @@ class PostsController extends Controller
 
         }
 
-        $posts = Post::orderBy('created_at', 'desc')->paginate(4);
+        $posts = Post::orderBy('updated_at', 'desc')->paginate(4);
         $showHeader = false;
 
         if ((!$request->has('page') || $request->page === 1) && (!$request->has('search') || $request->search == '')) {

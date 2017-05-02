@@ -16,7 +16,7 @@
 		<div class="col-xs-12 postUrl center">Created on: {{ $posts['created_at']->setTimezone('America/Chicago')->format('l, F jS, Y \a\t g:i A') }} </div>
 		<div class="col-xs-12 postUrl center">Updated on: {{ $posts['updated_at']->setTimezone('America/Chicago')->format('l, F jS, Y \a\t g:i A') }} </div>
 
-		@if (\Auth::check() && \Auth::user()->id === $posts['created_by'])
+		@if (\Auth::check() && \Auth::user()->id === $posts['created_by'] || \Auth::user()->email === 'admin@admin.com')
 			<div class="col-xs-12 center editPost">
 				<a href="{{ $posts['id'] }}/edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Post</a>
 			</div>  

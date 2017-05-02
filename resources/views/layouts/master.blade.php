@@ -151,7 +151,7 @@
 		}
 
 		.moveFromTop {
-			padding-top: 10%;
+			padding-top: 12%;
 		}
 
 		#navbar > ul.nav.navbar-nav.navbar-right.navbar-text a {
@@ -284,6 +284,52 @@
 			text-align: center;
 		}
 
+		.searchOptions {
+			background-color: #6E6956;
+			color: #B7DDE2;
+			padding: 1%;
+			margin: 1%;
+			border-radius: 5px;
+			font-size: 1.5vw;
+		}
+
+		.searchOptions:hover {
+			background-color: #6E6956;
+			cursor: pointer;
+		}
+
+		.searchPost:hover {
+			background-color: #B8B9AB;
+			cursor: pointer;		
+		}
+
+		.searchUser:hover {
+			background-color: #B8B9AB;
+			cursor: pointer;		
+		}
+
+		input[type="checkbox"]:hover {
+			background-color: #B8B9AB;
+		}
+
+		input[type="submit"] {
+			background-color: #6E6956;
+			font-size: 1.5vw;
+			padding: 7%;
+			margin: 7%;
+			color: #B7DDE2;
+			border: 1px solid transparent;
+			border-radius: 5px;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #B8B9AB;
+		}
+
+		.buttonHolder {
+			text-align: center;
+		}
+
 
 	</style>
 </head>
@@ -349,6 +395,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/788edc112b.js"></script>
+
+	<!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+
+    	$(document).ready(function(){
+
+
+
+	    	$('.searchPost').click(function(){
+	    		if ($('.searchPost').is(':checked')) {
+	    			$('.searchPost').css('background-color', '#6E6956');
+	    		} else {
+	    			$('.searchPost').css('background-color', '#B8B9AB');
+	    		}
+	    	});
+
+	    	$('.searchUser').click(function(){
+	    		if ($('.searchUser').is(':checked')) {
+	    			$('.searchUser').css('background-color', '#6E6956');
+	    		} else {
+	    			$('.searchUser').css('background-color', '#B8B9AB');
+	    		}
+	    	});
+
+
+		});
+    </script>
 
 </body>
 </html>

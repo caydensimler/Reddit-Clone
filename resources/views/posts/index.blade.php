@@ -2,19 +2,30 @@
 
 @section('content')
 
-	@if (!isset($_GET['page']) || $_GET['page'] == 1)
+	@if ($showHeader == true)
 		<div class="postsHeader">
 			<div class="postsHeaderTitle">Reddit Clone</div>
 			<div class="postsHeaderSubTitle">"It's like Reddit, but with style!"</div>
 		</div>
-	@elseif ($_GET['page'] != 1)
+	@else
 		<div class="moveFromTop"></div>
 	@endif
 
 	<div class="col-xs-offset-3 col-xs-6">
 		<form action="" method="GET">
-			<div class="col-xs-12 searchHeader">Search posts</div>
-			<input type="text" name="search" id="search" class="searchBar" placeholder="search by the post title or the creator's username">
+			<div class="col-xs-12 searchHeader">Search Posts by User's Name or Post's Title</div>
+			<input type="text" name="search" id="search" class="searchBar">
+			<div class="col-xs-12 buttonHolder">
+			  	<label class="searchOptions active searchPost">
+			   		<input type="checkbox" name="searchByPost" checked id="searchPost" autocomplete="off" class="searchPost" value="post"> Search by Post's Title
+			  	</label>
+				<label class="searchOptions active searchUser">
+			    	<input type="checkbox" name="searchByUser" checked id="searchUser" autocomplete="off" class="searchUser" value="user"> Search by User's Name
+			  	</label>
+			  	<label for="submit" class="searchSubmit">
+			  		<input type="submit">
+			  	</label>
+		  	</div>
 		</form>
 	</div>
 

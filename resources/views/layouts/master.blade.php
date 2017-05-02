@@ -38,12 +38,15 @@
 					@elseif (Session::has('notOwner'))
 						<a href="" class="invisible">lor</a>
 						<div class="error">You do not have access to that post.</div>
+					@elseif (Session::has('deleteUser'))
+						<a href="" class="invisible">lor</a>
+						<div class="error">User deleted.</div>
 					@endif
         		</ul>
 	            <ul class="nav navbar-nav navbar-right navbar-text">
 					
 					<a href="" class="invisible">lorem</a>
-					@if (\Auth::check())
+					@if (\Auth::check() && \Auth::user()->email !== 'admin@admin.com')
 						<a href="/posts/create">Create</a>
 						<a href="" class="invisible">lor</a>
 						<a href="/account">My Account</a>
@@ -53,6 +56,14 @@
 						<a href="/login">Login</a>
 						<a href="" class="invisible">lor</a>
 						<a href="/register">Register</a>
+					@elseif (\Auth::check() && \Auth::user()->email === 'admin@admin.com')
+						<a href="/users">Edit Users</a>
+						<a href="" class="invisible">lor</a>
+						<a href="/posts/create">Create</a>
+						<a href="" class="invisible">lor</a>
+						<a href="/account">My Account</a>
+						<a href="" class="invisible">lor</a>
+						<a href="/logout">Logout</a>
 					@endif
 	          	</ul>
         	</div>

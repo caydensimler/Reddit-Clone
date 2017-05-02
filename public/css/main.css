@@ -298,6 +298,10 @@ body > div.col-xs-12.center > ul > li.disabled > span {
 	cursor: pointer;		
 }
 
+input[type="checkbox"] {
+	-webkit-appearance: none;
+}
+
 input[type="checkbox"]:hover {
 	background-color: #B8B9AB;
 }
@@ -339,3 +343,19 @@ input[type="submit"]:hover {
 	background-color: #B8B9AB;
 	color: #B7DDE2;
 }
+
+.usersName {
+	font-size: 5vw;
+}
+
+.usersEmail {
+	font-size: 2vw;
+}
+
+.usersCreated {
+	font-size: 1.5vw;
+}
+
+
+
+

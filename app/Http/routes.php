@@ -14,6 +14,8 @@ Route::get('/test', function() {
 	$user->save();
 });
 
+Route::get('/users', 'PostsController@users');
+
 Route::get('/account', 'PostsController@account');
 
 // Authentication routes...

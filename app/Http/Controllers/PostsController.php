@@ -19,15 +19,21 @@ class PostsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
+    public function users() 
+    {
+        $users = User::orderBy('updated_at', 'desc')->paginate(10);
+        return view('posts.users')->with('users', $users);
+    }
+
     public function index(Request $request)
     {
 
         if (isset($request->search) && $request->searchByPost === 'post' && !$request->has('searchByUser')) {
 
             $posts = Post::where('title', 'like', "%$request->search%")
-            ->paginate(4)
-            ->appends(['search' => $request->search])
-            ->appends(['searchByPost' => $request->searchByPost]);
+            ->paginate(4);
+
+            $posts->appends($request->all());
 
             $showHeader = false;
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
@@ -37,9 +43,9 @@ class PostsController extends Controller
             $posts = Post::join('users', 'created_by', '=', 'users.id')
             ->where('name', 'like', "%$request->search%")
             ->orderBy('posts.created_at', 'desc')
-            ->paginate(4)
-            ->appends(['search' => $request->search])
-            ->appends(['searchByUser' => $request->searchByUser]);
+            ->paginate(4);
+
+            $posts->appends($request->all());
 
             $showHeader = false;
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
@@ -50,11 +56,10 @@ class PostsController extends Controller
             ->where('name', 'like', "%$request->search%")
             ->orWhere('title', 'like', "%$request->search%")
             ->orderBy('posts.created_at', 'desc')
-            ->paginate(4)
-            ->appends(['search' => $request->search])
-            ->appends(['searchByPost' => $request->searchByPost])
-            ->appends(['searchByUser' => $request->searchByUser]);
+            ->paginate(4);
 
+            $posts->appends($request->all());
+            
             $showHeader = false;
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
 
@@ -181,6 +186,15 @@ class PostsController extends Controller
         Session::flash('deleteMessage', 'Post successfully deleted.');
 
         return redirect()->action('PostsController@index');
+    }
+
+    public function destroyUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        Session::flash('deleteUser', 'User deleted successfully');
+        return redirect()->action('PostsController@users');
     }
 
     public function account() {

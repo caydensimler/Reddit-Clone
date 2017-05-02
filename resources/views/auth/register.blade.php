@@ -3,11 +3,14 @@
 
 @section('content')
 
-<div class="moveFromTop">
+<div class="moveFromTop"></div>
+
+	<div class="col-xs-offset-1 col-xs-10">Fill out the form below to register an account!</div>
 	<form method="POST" action=" {{ action('Auth\AuthController@postRegister') }} ">
 	    {!! csrf_field() !!}
 
 	    <div class="col-xs-offset-3 col-xs-6 registerBody registerBodyTop">
+	    	<div class="invisible">adsfs</div>
 	        <label for="name" class="registerHeader">Name</label>
 	        <input type="text" name="name" value="{{ old('name') }}" class="form-control registerInput">
 	        @if ($errors->has('name'))
@@ -34,7 +37,7 @@
 	        <div class="invisible">adsfs</div>
 	    </div>
 
-	    <div class="col-xs-offset-3 col-xs-6 registerBody registerBodyBottom">
+	    <div class="col-xs-offset-3 col-xs-6 registerBody">
 	        <label for="password" class="registerHeader">Confirm Password</label>
 	        <input type="password" name="password_confirmation" class="form-control registerInput">
 	        @if ($errors->has('password_confirmation'))
@@ -43,11 +46,11 @@
 	        <div class="invisible">adsfs</div>
 	    </div>
 
-	    <div>
+	    <div class="col-xs-offset-3 col-xs-6 registerBody registerBodyBottom">
 	        <button type="submit" class="btn btn-default">Register</button>
 	    </div>
 	</form>
-</div>
+
 
 
 

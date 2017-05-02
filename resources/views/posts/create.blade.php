@@ -9,7 +9,7 @@
 		@include('partials.posts-form')
 		
 		<div class="col-xs-offset-2 col-xs-8 registerBody registerBodyBottom buttonHolder">
-			<button type="submit" class="btn btn-primary registerButton">Login</button>
+			<button type="submit" class="btn btn-primary registerButton">Create Post</button>
 		</div>
 
 		

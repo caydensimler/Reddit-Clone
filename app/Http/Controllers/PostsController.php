@@ -17,8 +17,6 @@ class PostsController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
-
-        // $this->middleware('auth', ['only' => ['create', 'edit', 'update', 'store', 'destroy']]);
     }
 
     public function index(Request $request)
@@ -34,7 +32,6 @@ class PostsController extends Controller
             $showHeader = false;
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
 
-
         } else if (isset($request->search) && $request->searchByUser === 'user' && !$request->has('searchByPost')) {
 
             $posts = Post::join('users', 'created_by', '=', 'users.id')
@@ -46,7 +43,6 @@ class PostsController extends Controller
 
             $showHeader = false;
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
-
 
         } else if (isset($request->search) && isset($request->searchByUser) && isset($request->searchByPost)) {
 
@@ -61,7 +57,6 @@ class PostsController extends Controller
 
             $showHeader = false;
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
-
 
         }
 
@@ -91,8 +86,6 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        $request->session()->flush();
-
         $this->validate($request, Post::$rules);
 
         $post = new Post();

@@ -330,6 +330,25 @@
 			text-align: center;
 		}
 
+		.registerTitle {
+			color: #6E6956;
+			font-size: 3.8vw;
+			margin-bottom: 2%;
+			text-align: center;
+		}
+
+		.registerButton {
+			font-size: 1.5vw;
+			background-color: #6E6956;
+			border: 1px solid transparent;
+			color: #B7DDE2;
+		}
+
+		.registerButton:hover {
+			background-color: #B8B9AB;
+			color: #B7DDE2;
+		}
+
 
 	</style>
 </head>

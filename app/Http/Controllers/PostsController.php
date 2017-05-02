@@ -25,15 +25,18 @@ class PostsController extends Controller
     {
 
         if (isset($request->search) && $request->searchByPost === 'post' && !$request->has('searchByUser')) {
+
             $posts = Post::where('title', 'like', "%$request->search%")
             ->paginate(4)
             ->appends(['search' => $request->search])
             ->appends(['searchByPost' => $request->searchByPost]);
 
             $showHeader = false;
-
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
+
+
         } else if (isset($request->search) && $request->searchByUser === 'user' && !$request->has('searchByPost')) {
+
             $posts = Post::join('users', 'created_by', '=', 'users.id')
             ->where('name', 'like', "%$request->search%")
             ->orderBy('posts.created_at', 'desc')
@@ -42,9 +45,11 @@ class PostsController extends Controller
             ->appends(['searchByUser' => $request->searchByUser]);
 
             $showHeader = false;
-
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
+
+
         } else if (isset($request->search) && isset($request->searchByUser) && isset($request->searchByPost)) {
+
             $posts = Post::join('users', 'created_by', '=', 'users.id')
             ->where('name', 'like', "%$request->search%")
             ->orWhere('title', 'like', "%$request->search%")
@@ -55,12 +60,14 @@ class PostsController extends Controller
             ->appends(['searchByUser' => $request->searchByUser]);
 
             $showHeader = false;
-
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
+
+
         }
 
         $posts = Post::orderBy('created_at', 'desc')->paginate(4);
         $showHeader = false;
+
         if ((!$request->has('page') || $request->page === 1) && (!$request->has('search') || $request->search == '')) {
             $showHeader = true;
         }
@@ -186,7 +193,7 @@ class PostsController extends Controller
     public function account() {
         // $user = User::find(\Auth::user()->id);
 
-        $posts = Post::all()->where('created_by', \Auth::user()->id);
+        $posts = Post::where('created_by', \Auth::user()->id)->paginate(4);
         // $posts = $user->posts;
         return view('posts.account')->with('posts', $posts);
     }

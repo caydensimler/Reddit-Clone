@@ -4,7 +4,7 @@
 
 	@if ($showHeader == true)
 		<div class="postsHeader">
-			<div class="postsHeaderTitle">Reddit Clone</div>
+			<div class="postsHeaderTitle">Styledit</div>
 			<div class="postsHeaderSubTitle">"It's like Reddit, but with style!"</div>
 		</div>
 	@else

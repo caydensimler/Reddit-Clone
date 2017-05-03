@@ -15,6 +15,7 @@ Route::get('/test', function() {
 });
 
 Route::get('/users', 'PostsController@users');
+Route::post('/destroyuser/{id}', 'PostsController@destroyUser');
 
 Route::get('/account', 'PostsController@account');
 

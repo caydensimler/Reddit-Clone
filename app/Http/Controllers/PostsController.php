@@ -59,7 +59,7 @@ class PostsController extends Controller
             ->paginate(4);
 
             $posts->appends($request->all());
-            
+
             $showHeader = false;
             return view('posts.index')->with('posts', $posts)->with('showHeader', $showHeader);
 

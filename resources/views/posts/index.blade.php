@@ -23,7 +23,7 @@
 			    	<input type="checkbox" name="searchByUser" checked id="searchUser" autocomplete="off" class="searchUser" value="user"> Search by User's Name
 			  	</label>
 			  	<label for="submit" class="searchSubmit">
-			  		<input type="submit">
+			  		<input type="submit" class="btn-success">
 			  	</label>
 		  	</div>
 		</form>

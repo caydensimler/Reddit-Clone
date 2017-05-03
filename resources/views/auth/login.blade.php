@@ -32,7 +32,7 @@
     </div>
 
 	<div class="col-xs-offset-3 col-xs-6 col-md-offset-4 col-md-4 registerBody registerBodyBottom buttonHolder">
-        <button type="submit" class="btn btn-primary registerButton">Login</button>
+        <button type="submit" class="btn btn-default registerButton">Login</button>
     </div>
 </form>
 

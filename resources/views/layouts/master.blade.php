@@ -24,23 +24,28 @@
 
         	<div id="navbar" class="navbar-collapse collapse">
         		<ul class="nav navbar-nav navbar-left navbar-text">
+        			<a href="#" onClick="history.go(-1);return true;"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+        			<a href="" class="invisible">lor</a>
         			<a href="/">Home</a>
 
         			@if (Session::has('successMessage'))
         				<a href="" class="invisible">lor</a>
-						<div class="success">Post created</div>     
+						<div class="success">Post created.</div>     
 					@elseif (Session::has('deleteMessage'))
 						<a href="" class="invisible">lor</a>
-						<div class="error">Post deleted</div> 
+						<div class="error">Post deleted.</div> 
 					@elseif (Session::has('updateMessage'))
 						<a href="" class="invisible">lor</a>
-						<div class="success">Post Updated</div>
+						<div class="success">Post Updated.</div>
 					@elseif (Session::has('notOwner'))
 						<a href="" class="invisible">lor</a>
 						<div class="error">You do not have access to that post.</div>
 					@elseif (Session::has('deleteUser'))
 						<a href="" class="invisible">lor</a>
 						<div class="error">User deleted.</div>
+					@elseif (Session::has('accessDenied'))
+						<a href="" class="invisible">lor</a>
+						<div class="error">Access denied.</div>
 					@endif
         		</ul>
 	            <ul class="nav navbar-nav navbar-right navbar-text">
@@ -96,7 +101,7 @@
 	    		if ($('.searchPost').is(':checked')) {
 	    			$('.searchPost').css('background-color', '#6E6956');
 	    		} else {
-	    			$('.searchPost').css('background-color', '#B8B9AB');
+	    			$('.searchPost').css('background-color', '#6D6D6D');
 	    		}
 	    	});
 
@@ -104,7 +109,7 @@
 	    		if ($('.searchUser').is(':checked')) {
 	    			$('.searchUser').css('background-color', '#6E6956');
 	    		} else {
-	    			$('.searchUser').css('background-color', '#B8B9AB');
+	    			$('.searchUser').css('background-color', '#6D6D6D');
 	    		}
 	    	});
 

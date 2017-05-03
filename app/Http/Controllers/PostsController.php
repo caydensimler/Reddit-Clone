@@ -21,8 +21,22 @@ class PostsController extends Controller
 
     public function users() 
     {
-        $users = User::orderBy('updated_at', 'desc')->paginate(10);
-        return view('posts.users')->with('users', $users);
+        if (\Auth::user()->email === 'admin@admin.com') {
+            $users = User::orderBy('updated_at', 'desc')->paginate(10);
+            return view('posts.users')->with('users', $users);
+        } else {
+            Session::flash('accessDenied', 'Access denied.');
+            return redirect()->action('PostsController@index');
+        }
+    }
+
+    public function usersPosts($id)
+    {
+        $posts = Post::where('created_by', "$id")
+        ->orderBy('updated_at', 'desc')
+        ->paginate(4);
+
+        return view('posts.users_posts')->with('posts', $posts);
     }
 
     public function index(Request $request)

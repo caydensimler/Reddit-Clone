@@ -356,6 +356,41 @@ input[type="submit"]:hover {
 	font-size: 1.5vw;
 }
 
+.usersPosts > button > a {
+	color: #B7DDE2;
+}
+
+.usersPosts > button > a:hover {
+	text-decoration: none;
+}
+
+#navbar > ul.nav.navbar-nav.navbar-left.navbar-text > a:nth-child(1) > i {
+	font-size: 16px;
+}
+
+body > div.col-xs-offset-1.col-xs-10.postBody > div.col-xs-11.title.center > a > i {
+	color: #6E6956;
+}
+
+body > div.col-xs-offset-1.col-xs-10.postBody > div.col-xs-11.title.center > a:hover > i {
+	color: #B8B9AB;
+	text-decoration: none;
+	background-color: #B7DDE2;
+	border: 1px solid transparent;
+	text-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

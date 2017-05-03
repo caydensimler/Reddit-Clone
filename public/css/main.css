@@ -380,6 +380,9 @@ body > div.col-xs-offset-1.col-xs-10.postBody > div.col-xs-11.title.center > a:h
 	text-shadow: none;
 }
 
+.noSearch {
+	padding-top: 5%;
+}
 
 
 

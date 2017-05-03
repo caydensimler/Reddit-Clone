@@ -140,6 +140,7 @@ class PostsController extends Controller
     public function edit($id)
     {
 
+
         $posts = Post::find($id);
 
         if (!$posts) {
@@ -147,12 +148,15 @@ class PostsController extends Controller
             abort(404);
         }
 
-        if (\Auth::user()->id != $posts->created_by && !\Auth::user()->email === 'admin@admin.com') {
+        // dd(\Auth::user()->id != $posts->created_by, \Auth::user()->email != 'admin@admin.com', \Auth::user()->id === $posts->created_by);
+
+        if (\Auth::user()->id != $posts->created_by && \Auth::user()->email != 'admin@admin.com') {
             Session::flash('notOwner', 'Access Denied');
             return redirect()->action('PostsController@index');
+        } else if (\Auth::user()->id === $posts->created_by || \Auth::user()->email === 'admin@admin.com') {
+            return view('posts.edit')->with('posts', $posts);
         }
 
-        return view('posts.edit')->with('posts', $posts);
 
     }
 

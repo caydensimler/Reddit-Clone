@@ -29,6 +29,12 @@
 		</form>
 	</div>
 
+	@if (sizeof($posts) == 0 && !isset($_GET['search']))
+		<div class="col-xs-offset-1 col-xs-10 noPosts">Looks like there are no posts yet! No worries, you can create the first post<a href="/posts/create"> here</a></div>
+	@elseif (sizeof($posts) == 0 && isset($_GET['search']))
+		<div class="col-xs-offset-1 col-xs-10 noPosts noSearch">Sorry, no posts with that search criteria found! :(</div>
+	@endif
+
 	@foreach ($posts as $post)
 		
 		<div class="col-xs-offset-1 col-xs-10 postBody">
